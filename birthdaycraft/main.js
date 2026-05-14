@@ -93,14 +93,14 @@ function writeText(text, startX, baseY, z){
   for (const ch of text.toUpperCase()) {
     if (ch === ' ') { cursor += 4; continue; }
     const rows = FONT[ch] || FONT.H;
-    rows.forEach((row, ry) => [...row].forEach((v, rx) => { if(v==='1') addBlock(cursor+rx, baseY+(6-ry), z, 'letter'); }));
+    rows.forEach((row, ry) => [...row].forEach((v, rx) => { if(v==='1') addBlock(cursor-rx, baseY+(6-ry), z, 'letter');}));
     cursor += 6;
   }
 }
 writeText('HAPPY', -15, 8, -18);
 writeText('BIRTHDAY', -22, 0, -18);
-//writeText(NEPHEW_NAME, -Math.min(16, NEPHEW_NAME.length*3), 8, 18);
-writeText(NEPHEW_NAME.split('').reverse().join(''), -Math.min(16, NEPHEW_NAME.length*3), 8, 18);
+writeText(NEPHEW_NAME, -Math.min(16, NEPHEW_NAME.length*3), 8, 18);
+//writeText(NEPHEW_NAME.split('').reverse().join(''), -Math.min(16, NEPHEW_NAME.length*3), 8, 18);
 
 
 // Diamonds.
